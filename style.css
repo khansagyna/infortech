@@ -74,7 +74,7 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, #0d6efd 0%, #0072ff 40%, transparent 100%);
+  background: linear-gradient(120deg, #1573ff 0%, #0073ffd0 40%, transparent 100%);
   opacity: 0.85;
   z-index: 1;
 }
@@ -141,46 +141,80 @@ section {
 
 /* ==== ABOUT ==== */
 .about {
-  background: #fff;
-}
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 3rem;
-  align-items: center;
-}
-.about-grid img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-.about-text h2 {
-  color: #0d6efd;
-  margin-bottom: 1rem;
-}
-.about-text p {
-  margin-bottom: 1rem;
-}
-.about-text ul {
-  list-style: none;
-  margin-top: 1rem;
-  line-height: 1.8;
+  padding: 80px 0;
+  background-color: #fff;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-grid img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* judul di dalam teks (bukan di tengah halaman) */
+.section-title-left h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.about-text p {
+  line-height: 1.7;
+  color: #555;
+}
+
+.about-text ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.about-text li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
 /* ==== SERVICES ==== */
 .services {
   background: #f0f5ff;
   text-align: center;
+  padding: 150px;
 }
+
 .services h2 {
   margin-bottom: 2rem;
-  color: #0d6efd;
+  color: #444;
+  font-size: 2.2rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
 }
+
+/* Garis bawah judul */
+.services h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #0d6efd;
+  margin: 10px auto 0;
+  border-radius: 5px;
+}
+
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2.5rem;
 }
+
 .card {
   background: #fff;
   border-radius: 15px;
@@ -188,10 +222,12 @@ section {
   transition: 0.3s;
   box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
+
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 25px rgba(13,110,253,0.2);
 }
+
 .card .icon {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -201,40 +237,45 @@ section {
 .team {
   background: #fff;
   text-align: center;
-  padding: 80px 0;
-}
-.team h2 {
-  color: #0d6efd;
-  margin-bottom: 2rem;
+  padding-top: 100px;
+  padding-bottom: 150px;
 }
 
-/* Horizontal scroll version */
+.team h2 {
+  color: #444;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+/* Garis bawah judul team */
+.team h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #0d6efd;
+  margin: 10px auto 0;
+  border-radius: 5px;
+}
+
 .team-grid {
   display: flex;
-  gap: 2.5rem;
-  overflow-x: auto;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
-  justify-content: flex-start;
-  scrollbar-color: #0d6efd #f0f5ff;
+  justify-content: center;
+  gap: 6rem;
+  padding: 20px 40px; /* tambah padding kiri-kanan biar gak mepet */
+  width: auto;
+  
 }
-.team-grid::-webkit-scrollbar {
-  height: 10px;
-}
-.team-grid::-webkit-scrollbar-thumb {
-  background-color: #0d6efd;
-  border-radius: 10px;
-}
-.team-grid::-webkit-scrollbar-track {
-  background: #e0e0e0;
-}
+
 .member {
-  flex: 0 0 auto;
   width: 200px;
   text-align: center;
-  scroll-snap-align: start;
   transition: transform 0.3s;
 }
+
 .member img {
   width: 130px;
   height: 130px;
@@ -244,23 +285,87 @@ section {
   margin-bottom: 1rem;
   object-fit: cover;
 }
+
 .member:hover img {
   border-color: #0d6efd;
   transform: scale(1.05);
 }
+
 .member h4 {
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
+
 .member p {
   color: #555;
   font-size: 0.9rem;
 }
 
+
+
+/* ==== TESTIMONIALS ==== */
+.testimonials {
+  background: #f8fbff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.testimonials h2 {
+  color: #444;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.underline-center {
+  width: 80px;
+  height: 4px;
+  background: #0d6efd;
+  margin: 0 auto 40px;
+  border-radius: 2px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(13,110,253,0.15);
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-card h4 {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+.testimonial-card span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+
 /* ==== CONTACT ==== */
 .contact {
   background: #fff;
-  padding: 80px 10%;
+  padding: 100px 10%;
   color: #333;
   font-family: "Poppins", sans-serif;
 }
@@ -359,9 +464,6 @@ button {
   transition: 0.3s;
   align-self: flex-start;
 }
-button:hover {
-  background: #0056b3;
-}
 
 /* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
@@ -381,7 +483,7 @@ button:hover {
 
 /* ==== FOOTER ==== */
 .footer {
-  background: #0d6efd;
+  background: #007bff;
   color: #fff;
   text-align: center;
   padding: 50px 20px;
